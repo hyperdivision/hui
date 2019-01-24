@@ -1,0 +1,30 @@
+{
+  "name": "@hyperdivision/component",
+  "version": "0.0.0",
+  "description": "UI Component",
+  "private": true,
+  "dependencies": {
+    "on-load": "^4.0.1"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  },
+  "scripts": {
+    "pretest": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperdivision/component.git"
+  },
+  "keywords": [],
+  "author": "Hyperdivision",
+  "contributors": [
+    "Emil Bay <github@tixz.dk>",
+    "Mathias Buus <mathiasbuus@gmail.com>"
+  ],
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/hyperdivision/component/issues"
+  },
+  "homepage": "https://github.com/hyperdivions/component#readme"
+}
