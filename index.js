@@ -1,6 +1,7 @@
 const onload = require('on-load')
 
 const unloaders = Symbol('unloaders')
+const updating = Symbol('updating')
 
 class Component {
   constructor (element, opts) {
@@ -8,6 +9,7 @@ class Component {
 
     this.element = element || document.createElement('div')
     this[unloaders] = []
+    this[updating] = false
 
     onload(this.element,
       this._onload.bind(this),
@@ -17,6 +19,7 @@ class Component {
 
     if (opts.onload) this.onload = opts.onload
     if (opts.onunload) this.onunload = opts.onunload
+    if (opts.render) this.render = opts.render
   }
 
   on (emitter, name, fn) {
@@ -27,6 +30,22 @@ class Component {
   once (emitter, name, fn) {
     this[unloaders].push([ emitter, name, fn ])
     emitter.once(name, fn)
+  }
+
+  update () {
+    if (this[updating]) return
+    this[updating] = true
+    window.requestAnimationFrame(this._reallyUpdate.bind(this))
+  }
+
+  _reallyUpdate () {
+    if (!this[updating]) return
+    this[updating] = false
+    this.render()
+  }
+
+  render () {
+    // overwrite me
   }
 
   onload () {
@@ -42,6 +61,8 @@ class Component {
   }
 
   _onunload () {
+    this[updating] = false
+
     const list = this[unloaders]
 
     while (list.length) {

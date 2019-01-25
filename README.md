@@ -22,6 +22,11 @@ class View extends Component {
   onunload () {
     console.log('component unloaded')
   }
+
+  render () {
+    console.log('you should update the rendering of you component here')
+    console.log('called on the next raf tick when you call .update() debounced')
+  }
 }
 ```
 
@@ -34,11 +39,15 @@ const view = new Component(someElement, {
   },
   onunload () {
     console.log('component unloaded')
+  },
+  render () {
+    console.log('update the rendering')
   }
 })
 ```
 
+Call `component.update()` to trigger a rendering on the next raf. Multiple calls to `.update()` are automatically debounced.
+
 ## TODO
 
-* Add .render that calls .update internally that is raf'ed
 * Tests
