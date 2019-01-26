@@ -1,6 +1,6 @@
 {
   "name": "@hyperdivision/component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "UI Component",
   "dependencies": {
     "on-load": "^4.0.1"
