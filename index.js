@@ -2,24 +2,41 @@ const onload = require('on-load')
 
 const unloaders = Symbol('unloaders')
 const updating = Symbol('updating')
+const first = Symbol('first')
+const element = Symbol('element')
 
 class Component {
-  constructor (element, opts) {
+  constructor (opts) {
     if (!opts) opts = {}
 
-    this.element = element || document.createElement('div')
+    this[element] = opts.element || null
     this[unloaders] = []
     this[updating] = false
-
-    onload(this.element,
-      this._onload.bind(this),
-      this._onunload.bind(this),
-      this.constructor
-    )
+    this[first] = true
 
     if (opts.onload) this.onload = opts.onload
     if (opts.onunload) this.onunload = opts.onunload
     if (opts.render) this.render = opts.render
+    if (opts.createElement) this.createElement = opts.createElement
+  }
+
+  get element () {
+    if (!this[element]) this[element] = this.createElement()
+
+    if (this[element] && this[first]) {
+      this[first] = false
+      onload(this[element],
+        this._onload.bind(this),
+        this._onunload.bind(this),
+        this.constructor
+      )
+    }
+
+    return this[element]
+  }
+
+  set element (el) {
+    this[element] = el
   }
 
   on (emitter, name, fn) {
@@ -42,6 +59,11 @@ class Component {
     if (!this[updating]) return
     this[updating] = false
     this.render()
+  }
+
+  createElement () {
+    // overwrite me
+    return null
   }
 
   render () {

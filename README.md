@@ -9,7 +9,12 @@ const Component = require('@hyperdivision/component')
 
 class View extends Component {
   constructor () {
-    super(anElement) // exposed as this.element
+    super()
+  }
+
+  // only called once on first .element access
+  createElement () {
+    return someDomElement
   }
 
   onload () {
@@ -24,8 +29,9 @@ class View extends Component {
   }
 
   render () {
-    console.log('you should update the rendering of you component here')
+    console.log('you should update the rendering of your component here')
     console.log('called on the next raf tick when you call .update() debounced')
+    this.element.someUpdates()
   }
 }
 ```
@@ -33,7 +39,8 @@ class View extends Component {
 Or you can use the shorthand if you are not subclassing
 
 ``` js
-const view = new Component(someElement, {
+const view = new Component({
+  element: someDomElement,
   onload () {
     console.log('component loaded')
   },

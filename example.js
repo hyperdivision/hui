@@ -4,7 +4,11 @@ const { EventEmitter } = require('events')
 let tick = 0
 const e = new EventEmitter()
 
-const c = new Component(null, {
+const c = new Component({
+  createElement () {
+    return document.createElement('div')
+  },
+
   onload () {
     console.log('component loaded')
 
