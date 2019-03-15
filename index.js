@@ -5,7 +5,7 @@ const updating = Symbol('updating')
 const first = Symbol('first')
 const element = Symbol('element')
 
-class Component {
+module.exports = class Component {
   constructor (opts) {
     if (!opts) opts = {}
 
@@ -100,5 +100,3 @@ function off (e, name, fn) {
   if (e.off) e.off(name, fn)
   else e.removeListener(name, fn)
 }
-
-module.exports = Component

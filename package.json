@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "UI Component",
   "dependencies": {
+    "nanomorph": "^5.4.0",
     "on-load": "^4.0.1"
   },
   "devDependencies": {
