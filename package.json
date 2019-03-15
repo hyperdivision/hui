@@ -1,6 +1,6 @@
 {
   "name": "@hyperdivision/component",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "UI Component",
   "dependencies": {
     "nanomorph": "^5.4.0",
