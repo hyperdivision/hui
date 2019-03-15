@@ -41,12 +41,11 @@ module.exports = class Component {
 
   on (emitter, name, fn) {
     this[unloaders].push([ emitter, name, fn ])
-    emitter.on(name, fn)
+    on(emitter, name, fn)
   }
 
   once (emitter, name, fn) {
-    this[unloaders].push([ emitter, name, fn ])
-    emitter.once(name, fn)
+    this[unloaders].push([ emitter, name, once(emitter, name, fn) ])
   }
 
   update () {
@@ -96,7 +95,31 @@ module.exports = class Component {
   }
 }
 
+function on (e, name, fn) {
+  if (e.on) e.on(name, fn)
+  else if (e.addEventListener) e.addEventListener(name, fn)
+  else e.addListener(name, fn)
+}
+
 function off (e, name, fn) {
   if (e.off) e.off(name, fn)
+  else if (e.removeEventListener) e.removeEventListener(name, fn)
   else e.removeListener(name, fn)
+}
+
+function once (e, name, fn) {
+  if (e.once) {
+    e.once(name, fn)
+  } else {
+    fn = autoOff(e, name, fn)
+    on(e, name, fn)
+  }
+  return fn
+}
+
+function autoOff (e, name, fn) {
+  return function wrap () {
+    off(e, name, wrap)
+    fn.apply(this, arguments)
+  }
 }
