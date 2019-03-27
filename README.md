@@ -1,6 +1,6 @@
 # @hyperdivision/component
 
-WIP, UI component class
+Generic UI component class
 
 ## Usage
 
@@ -71,3 +71,7 @@ const el = new Component({
   }
 })
 ```
+
+## License
+
+ISC

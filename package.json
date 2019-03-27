@@ -1,7 +1,7 @@
 {
   "name": "@hyperdivision/component",
   "version": "1.1.0",
-  "description": "UI Component",
+  "description": "Generic UI Component class",
   "dependencies": {
     "nanomorph": "^5.4.0",
     "on-load": "^4.0.1"
@@ -22,7 +22,7 @@
     "Emil Bay <github@tixz.dk>",
     "Mathias Buus <mathiasbuus@gmail.com>"
   ],
-  "license": "UNLICENSED",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/hyperdivision/component/issues"
   },
