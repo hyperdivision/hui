@@ -14,6 +14,8 @@ module.exports = class Component {
     this[updating] = false
     this[first] = true
 
+    this.loaded = false
+
     if (opts.onload) this.onload = opts.onload
     if (opts.onunload) this.onunload = opts.onunload
     if (opts.render) this.render = opts.render
@@ -78,10 +80,12 @@ module.exports = class Component {
   }
 
   _onload () {
+    this.loaded = true
     this.onload()
   }
 
   _onunload () {
+    this.loaded = false
     this[updating] = false
 
     const list = this[unloaders]
