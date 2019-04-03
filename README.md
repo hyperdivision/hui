@@ -1,6 +1,8 @@
-# @hyperdivision/component
+# `@hyperdivision/component`
 
-Generic UI component class
+[![Build Status](https://travis-ci.org/hyperdivision/component.svg?branch=master)](https://travis-ci.org/hyperdivision/component)
+
+> Generic UI component class
 
 ## Usage
 
@@ -57,7 +59,7 @@ const view = new Component({
 
 Call `component.update()` to trigger a rendering on the next raf. Multiple calls to `.update()` are automatically debounced.
 
-## Morph components
+### Morph components
 
 If your render method just involves reconstructing the entire dom of your element and then diffing it against the mounted one
 you can use a morph component as a conveinience.
@@ -72,6 +74,16 @@ const el = new Component({
 })
 ```
 
+## API
+
+### ``
+
+## Install
+
+```sh
+npm install @hyperdivision/component
+```
+
 ## License
 
-ISC
+[ISC](LICENSE)
