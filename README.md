@@ -1,13 +1,13 @@
-# `@hyperdivision/component`
+# `hui`
 
-[![Build Status](https://travis-ci.org/hyperdivision/component.svg?branch=master)](https://travis-ci.org/hyperdivision/component)
+[![Build Status](https://travis-ci.org/hui.svg?branch=master)](https://travis-ci.org/hui)
 
 > Generic UI component class
 
 ## Usage
 
 ``` js
-const Component = require('@hyperdivision/component')
+const Component = require('hui')
 
 class View extends Component {
   constructor () {
@@ -65,7 +65,7 @@ If your render method just involves reconstructing the entire dom of your elemen
 you can use a morph component as a conveinience.
 
 ``` js
-const Component = require('@hyperdivision/component/morph')
+const Component = require('hui/morph')
 
 const el = new Component({
   createElement () {
@@ -81,7 +81,7 @@ const el = new Component({
 ## Install
 
 ```sh
-npm install @hyperdivision/component
+npm install hui
 ```
 
 ## License
