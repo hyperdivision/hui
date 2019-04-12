@@ -1,6 +1,6 @@
 # `hui`
 
-[![Build Status](https://travis-ci.org/hui.svg?branch=master)](https://travis-ci.org/hui)
+[![Build Status](https://travis-ci.org/hyperdivision/hui.svg?branch=master)](https://travis-ci.org/hyperdivision/hui)
 
 > Generic UI component class
 

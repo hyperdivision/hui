@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hui.git"
+    "url": "git+https://github.com/hyperdivision/hui.git"
   },
   "keywords": [],
   "author": "Hyperdivision",
@@ -24,7 +24,7 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hui/issues"
+    "url": "https://github.com/hyperdivision/hui/issues"
   },
-  "homepage": "https://github.com/hyperdivions/component#readme"
+  "homepage": "https://github.com/hyperdivsion/hui#readme"
 }
