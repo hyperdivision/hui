@@ -1,6 +1,6 @@
 {
   "name": "hui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generic UI Component class",
   "dependencies": {
     "nanomorph": "^5.4.0",
