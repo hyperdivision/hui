@@ -82,6 +82,9 @@ module.exports = class Component {
   _onload () {
     this.loaded = true
     this.onload()
+    // if any listeners were attached in onload we trigger a rerender as state
+    // may have changed between createElement or unload/load
+    if (this[unloaders].length) this.render()
   }
 
   _onunload () {
