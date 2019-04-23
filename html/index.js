@@ -1,1 +1,1 @@
-module.exports = require('nanomorph')
+module.exports = require('nanohtml')
