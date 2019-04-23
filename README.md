@@ -76,7 +76,30 @@ const el = new Component({
 
 ## API
 
-### ``
+### `const Component = require('hui')`
+
+Base component with manual rendering and hooks for load, unload and
+automatic event life cycle
+
+### `const MorphComponent = require('hui/morph')`
+
+A auto morphing component using DOM diffing.
+
+### `const html = require('hui/html')`
+
+HTML with template strings
+
+### `const raw = require('hui/html/raw')`
+
+Prevent escaping with template strings
+
+### `const css = require('hui/css')`
+
+Inline css styles
+
+### `const guard = require('hui/guard')`
+
+Protect a DOM subtree against morphing
 
 ## Install
 
