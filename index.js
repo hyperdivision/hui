@@ -1,4 +1,4 @@
-const onload = require('on-load')
+const onload = require('fast-on-load')
 
 const unloaders = Symbol('unloaders')
 const updating = Symbol('updating')
