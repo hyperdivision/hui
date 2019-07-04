@@ -1,18 +1,13 @@
-sudo: false
+dist: xenial
 language: node_js
 node_js:
-  - lts/*
-jobs:
-  include:
-    - stage: npm release
-      node_js: node
-      script: echo "Deploying to npm ..."
-      deploy:
-        provider: npm
-        email:
-          secure: "wTUtY9qiGuPbzDa0Dg0lbJV2hogEqK+mW61rllrGa15vZjQLcwUkmn1J7xpFN3qkmksahXYAi8/MuVzZJGg0P3z0ImofX7VeoP3cqejfQUx+4gu5gwCTJBXSwBZKzTq8PLYQrdkbXK5RpuVJrHqWbmPznYbwcvd+5XBgNRDLl/kwbgdbrwckgfQq7bDaPNdTdr6GeGJ3o7spacO4WL9vnus1UrKRMEM3+OCNo4vps+LN6nJLbbOnZ7x0NoTmFoB49F4wx/rXoVvXoSOzpzvU1jtsWZom89GB15ocl2NDp+xC3rMkatA1jyAL8xIby/LAqRNyOsm6IaqZusNOXZTnx/CFRY+leSR5nAORwUMn4mcUvE3bBte9QHi7tB1DJfeZX4oUaxUqVABvT2fr90tuI+pYqp+WenDzW/18PSLuh+ob9rDC2rrJ72s8lNfLQ5L8It7zc2MH4V1AzBMYINsBOmbjzOUlIMXsOhDhs7gJu7LY8ANOKHH7Pd4gGU1Fn3kEAStperwuN9ZylvjBYe1gn9dIETb7TXpILENAX16GOqATj/ttTwKg7Awc4G59U9+R7gqT8jhIzadtrUbIEmjwzPB+vAxtngGAbeihpFaKFGfzmmoijW7eoev+KyaGJzBGTlapzt5uvZ2cnvwe0LGKxok9IgMBYZFyeDKWR1Ro/E4="
-        api_key: # d9c2
-          secure: "Hmef2mOOl/KgDeTQcFmuhYKZdtKt2ItRjRjKwz8c6J5f4TpxKpMiOnDJLfkhsY+ncMR2w0Jc0SBnMuuTss2io7wSthA0Iui7P7HNae56QmqBsmYKpgsUyB53BsA3ve923sWJDU2oQJEEXf9JXTqAYuRxud0EQt2dYC9SlwAld4RsfyTagQarHLWxnux9yNJ1/0KS3Bo/IqV7boZfRHNB/CH0mh3sZaEAbg2mRODAiMkmNIBBi4x84VA19fHx5kja0fYIbTKUKOmSPj/z86D+snIroUVzM2vbpMAEhsdLdyBOlVExZMkhZ3767UTXluGyv5K/CqnUXajt0kzgN4XlNWVUncbAldhjczn2+I9dpTXVnAWi6hgS+qVPwohpaHF81BSDsstSZnYlUIgxY/EL0ldqQf8oC72/AGGt+Dsepk/AfLXrlsnvLY1etFFpN3HGns/ma9RVcglIEyJPPG+s8Mi9yQgYOnAUb0yuhWHBG8UmkdPk7tpOScK+g1UiAUrGknUYIfCaKIg/HnkhvvaDprSfnZNx9JCzDpf0jMA1JH46bZOsMd1fjMu+I4NfCVkhItMZ19Bx4s6QE+JoXLA2rIoAA+kkr4natCG5rzCjL7xwrgzz1+0MyPMRih1Se5GvB2R+NwB7mw5EEMMZgEzPgm0csJc91rUMlf9QebU7I/8="
-        on:
-          tags: true
-          node: node
+- lts/*
+deploy:
+  provider: npm
+  email:
+    secure: EWC69zoJmvZFi5fb7Eud33TfQBgGTX9o65KuHWk3kpJyVQkkkGRjH1Wv4BIQI9MroOJdAVRQR+bNNH/AsqLWe5mztBIbtz9IBniVqIl9cgQ800tf2TS4BlK0EwwAF1ys3TcGHKZQOiaOMV7a3/p/xYKRJAnoTZltUF2UREHlluMdA5cJEjBGGF+9yErFVx5XPfUwLKFT2D7K6peSim7Rgbe4b/Q0Qiso4BSXTeaKMiCFiiiDkWgUTxMsoMTrzOKo0UYo5+1psk9cltH9QbDJywcK9ZPKyyd9mKYZY/UoHd9q2wA9SSWeXhptRiEzSzRC330tE2Dbd3wQB/yTQ9gsrodl74NSn+h0rVNgNT7x3qJrUn+IGfjnULllT8HESbaFknxVLh+OUAdHAx1DOWuIFCaU2LcBCqmqQYT2BB/al6snfCp/JgmObGhNoFO5O0EM8HBs1ipFm6aZEYjvRW+bEIiIBjkamzTeIyQj9y66Gy+McY5pgMFsmD1QrCh1jncQs6wiN22zBv9JnKpTWMCAb8VLIfMhX6v4LAy4J6n7GPHYhJ5RDFi/IQH6G++7Ef94I2h7w1qrFNqroCyB2XujLr35bz0tWoP10FZDQV6BSXt7CYCsIQd56lUN67+WTqOIv1tAT+AUq5p+2COfjCwZPifZnN5FO8yfEZTsVqDlBzY=
+  api_key:
+    secure: EeFprHqo+zvDm/BBmbtK//RhSzFUhO9uogYo949iGkqENtaLetlQ/zNMwdWAtXka9fGXEbuUOpUGYQVQOCef0Px0yo4z+09ga8uWnCcEXTpbaTpMGdXt83OUpm2EwWsfPxs6YxZZN9aS3BDx1xapphZ3Jt6QjLx1xWhn5dbAeJzyexZjDSQ+i4Dw/75HGXh9QxAQK2hwTNWh3fMtbNFGQifZonfyl4RpunPGoRanHzrlvd4541dDEaNwkXbWL2sYrH/FFKuZAJBQUzY15wnOdEmczHpscermELp9xY+C0Y05byZxRmgEr0g2hR+JRza69esyXFNfKLysy+iGq+N2S6wwEfCkvdW+HRznRLK0sl91TEeRcxCOcFw3ZkjBZciDWtGNIa5Kd4CrbimrNSTp1R/CToooJ/P3FBmbbJmJqLtkOFYrJvF2eulNPp6OAkKOAXpGuUMKC7dvxn+KwW/DHLfeDD8H1MjiJ5Au46YwOH3L0/tZwyzIxAYNuDaZIHqDnbU1FBGOtIoxW3OYevrucvw3rgQihC1CB0UkJUytIaxoZfmkNZ6Qjifyga83kaKFKYsvaMrEsTCjNxb3J2NxD3+U7P03RjFb719wU7kR82MctTaVOcUhpsyeZ5JSA2mSyEwGgzJ1Pd2TB31boDTmN+SWRbPc2LupKlB4o2ILcvY=
+  on:
+    tags: true
+    repo: hyperdivision/hui
