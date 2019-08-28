@@ -42,12 +42,12 @@ module.exports = class Component {
   }
 
   on (emitter, name, fn) {
-    this[unloaders].push([ emitter, name, fn ])
+    this[unloaders].push([emitter, name, fn])
     on(emitter, name, fn)
   }
 
   once (emitter, name, fn) {
-    this[unloaders].push([ emitter, name, once(emitter, name, fn) ])
+    this[unloaders].push([emitter, name, once(emitter, name, fn)])
   }
 
   update () {
@@ -94,7 +94,7 @@ module.exports = class Component {
     const list = this[unloaders]
 
     while (list.length) {
-      const [ emitter, name, fn ] = list.pop()
+      const [emitter, name, fn] = list.pop()
       off(emitter, name, fn)
     }
 
