@@ -47,7 +47,21 @@ module.exports = class Component {
   }
 
   once (emitter, name, fn) {
-    this[unloaders].push([emitter, name, once(emitter, name, fn)])
+    this[unloaders].push([emitter, name, fn])
+    once(emitter, name, fn)
+  }
+
+  off (emitter, name, fn) {
+    off(emitter, name, fn)
+
+    // swap and pop
+    for (let i = 0; i < this[unloaders].length; i++) {
+      const [e, n, f] = this[unloaders][i]
+      if (e === emitter && n === name && f === fn) {
+        this[unloaders][i] = this[unloaders][this[unloaders].length - 1]
+        this[unloaders].pop()
+      }
+    }
   }
 
   update () {
@@ -105,7 +119,6 @@ module.exports = class Component {
 function on (e, name, fn) {
   if (e.on) e.on(name, fn)
   else if (e.addEventListener) e.addEventListener(name, fn)
-  else e.addListener(name, fn)
 }
 
 function off (e, name, fn) {
@@ -117,16 +130,7 @@ function off (e, name, fn) {
 function once (e, name, fn) {
   if (e.once) {
     e.once(name, fn)
-  } else {
-    fn = autoOff(e, name, fn)
-    on(e, name, fn)
-  }
-  return fn
-}
-
-function autoOff (e, name, fn) {
-  return function wrap () {
-    off(e, name, wrap)
-    fn.apply(this, arguments)
+  } else if (e.addEventListener) {
+    e.addEventListener(name, fn, { once: true })
   }
 }
