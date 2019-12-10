@@ -85,6 +85,26 @@ automatic event life cycle
 
 A auto morphing component using DOM diffing.
 
+### `component.on(emitter, name, fn)`
+
+`addEventListener` / `on` helper that auto gc's the listener on unload.
+
+### `component.off(emitter, name, fn)`
+
+`removeEventListener` / `off` helper that cancels out the above method.
+
+### `component.loaded`
+
+Boolean wheather or not the component is currently loaded.
+
+### `component.element`
+
+The DOM element attached.
+
+### `component.update()`
+
+Trigger a render in the next animation frame.
+
 ### `const html = require('hui/html')`
 
 HTML with template strings
